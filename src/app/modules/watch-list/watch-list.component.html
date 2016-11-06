@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row" *ngIf="!movies.length && !loading">
+        <div class="col-sm-12">
+            <div class="alert alert-info">
+                No movies found
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="movies && !loading">
+        <div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let movie of movies">
+            <div class="movie-card clearfix">
+                <figure class="movie-card__poster">
+                    <img src="{{movie.Poster}}" alt="{{movie.Title}}">
+                </figure>
+                <div class="movie-card__info animated">
+                    <h4 class="movie-card__title">{{movie.Title}} - {{movie.Year}}</h4>
+                </div>
+                <button type="button" class="btn btn-danger movie-card__button animated" (click)="removeFromFavourites(movie)">
+                            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                        </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+<!-- NAVIGATION BEGIN -->
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" [class.opened]="menuIsVisible" class="navbar-toggle collapsed" (click)="toggleMenu()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+            <a class="navbar-brand" href="javascript: void(0);">Movies</a>
+        </div>
+
+        <div [class.opened]="menuIsVisible" class="collapse navbar-collapse" id="app-navigation">
+            <ul class="nav navbar-nav">
+                <li><a id="js-movies__list" href="javascript: void(0);" routerLink="/batman">Batman</a></li>
+                <li><a id="js-movies__favs" href="javascript: void(0);" routerLink="/list">Watch List</a></li>
+            </ul>
+            <form id="js-search__form" class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" id="js-search__title" class="form-control" name="title" ngModel #title="ngModel" placeholder="Search">
+                </div>
+                <button id="js-search__submit" type="button" class="btn btn-default" (click)="search(title.value)">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+<!-- NAVIGATION END -->
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->

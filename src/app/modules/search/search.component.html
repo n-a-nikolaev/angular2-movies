@@ -1,0 +1,34 @@
+<loader [show]="loading"></loader>
+
+<div class="container">
+    <div class="row" *ngIf="resultsCount == 0 && !loading">
+        <div class="col-sm-12">
+            <div class="alert alert-info">
+                No results found for {{movieTitle}}.
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="resultsCount > 0">
+        <div class="col-sm-12">
+            <h4>We found <em>{{resultsCount}}</em> results for <strong>{{movieTitle}}</strong></h4>
+        </div>
+        <hr/>
+        <div class="col-sm-12">
+            <div class="row" *ngIf="movies.length && !loading">
+                <div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let movie of movies">
+                    <div class="movie-card clearfix">
+                        <figure class="movie-card__poster">
+                            <img src="{{movie.Poster}}" alt="{{movie.Title}}">
+                        </figure>
+                        <div class="movie-card__info animated">
+                            <h4 class="movie-card__title">{{movie.Title}} - {{movie.Year}}</h4>
+                        </div>
+                        <button type="button" class="btn btn-success movie-card__button animated" (click)="addToFavourites(movie)">
+                            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
